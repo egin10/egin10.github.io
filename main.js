@@ -1,11 +1,19 @@
+const Styles = {
+  nav: {
+    "margin-top": "10px",
+    "background-color": "#E2E2E2"
+  }
+};
+
 //============= HEADER COMPONENT
 const Header = React.createClass({
   render: function() {
+    let date = new Date();
     return (
       <div>
         <nav
           className="navbar navbar-light"
-          style={{ "margin-top": "10px", "background-color": "#e3f2fd" }}
+          style={Styles.nav}
         >
           <div className="container-fluid">
             <div className="navbar-header">
@@ -13,7 +21,7 @@ const Header = React.createClass({
                 <img 
                     src={"https://www.gitbook.com/cover/book/mongkuen/react.jpg?build=1470682429235"}
                     alt="ReactJs"
-                    width={"20"} height={"25"}
+                    width={"22"} height={"25"}
                 />
               </a>
             </div>
@@ -23,6 +31,11 @@ const Header = React.createClass({
               </li>
               <li>
                 <a href="#">About</a>
+              </li>
+            </ul>
+            <ul className="nav navbar-nav navbar-right">
+              <li>
+                <a>Time</a>
               </li>
             </ul>
           </div>
@@ -49,7 +62,7 @@ const Slider = React.createClass({
         let img = this.state.url[on];
         return(
             <center>
-                <img src={img} height={"60%"} width={"90%"} onClick={this.onClicked} />
+                <img src={img} height={"70%"} width={"95%"} onClick={this.onClicked} />
             </center>
         );
     },
@@ -64,15 +77,95 @@ const Slider = React.createClass({
     }
 });
 
+//===============================================
 const HomeComponent = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>Hello</h1>
+        <hr/>
+        <h1>Refrensi Belajar</h1>
+        <p>Beberapa refrensi belajar yang bagus menurut saya. Terdapat beberapa video dan artikel menarik terkait web development.</p>
+        <div>
+          {this.props.children}
+        </div>
       </div>
     );
   }
 });
+
+//===============================================
+const CardComponent = React.createClass({
+  getInitialState: function(){
+    return {
+      listArtikel: [
+      {
+        judul: "React Tutorial - The Net Ninja",
+        deskripsi: "Hey all, welcome to your very first React tutorial for beginners! In this series I'll show you why React is such and awesome framework for creating front-end web applications, as well as how to set it up with Webpack and create a to-do list from scratch!...",
+        image: "https://i.ytimg.com/vi/yZ0f1Apb5CU/maxresdefault.jpg",
+        url: "https://www.youtube.com/watch?v=yZ0f1Apb5CU&list=PL4cUxeGkcC9i0_2FF-WhtRIfIJ1lXlTZR",
+        type: "Video"
+      },
+      {
+        judul: "Node JS Tutorial for Beginners - The Net Ninja",
+        deskripsi: "Yo ninjas, in this Node JS tutorial series for beginners, we'll be walking step by step through what Node JS is, and how it all works. We'll also be creating a Node JS application from scratch using express, and hook it up to MongoDB...",
+        image: "https://i.ytimg.com/vi/w-7RQ46RgxU/maxresdefault.jpg",
+        url: "https://www.youtube.com/playlist?list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp",
+        type: "Video"
+      },
+      {
+        judul: "Vue JS 2 Tutorial - The Net Ninja",
+        deskripsi: "Hey gang and welcome to your first Vue.js tutorial. In this video I'll introduce you to Vue js and show you how to get started by using a CDN to install it locally...",
+        image: "https://i.ytimg.com/vi/5LYrN_cAJoA/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=5LYrN_cAJoA&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa",
+        type: "Video"
+      },
+    ]
+    }
+  },
+  render: function() {
+    let list = this.state.listArtikel;
+    return <div>
+        <div className="row">
+          {list.map((val, i) =>
+            <CardList
+              key={i}
+              image={val.image}
+              deskripsi={val.deskripsi}
+              url={val.url}
+              judul={val.judul}
+              type={val.type}
+            />
+          )}
+        </div>
+      </div>;
+  }
+});
+
+//===============================================
+const CardList = React.createClass({
+  render: function() {
+    return(
+      <div>
+        <div className="col-xs-18 col-sm-6 col-md-4">
+          <div className="thumbnail">
+            <img src={this.props.image} width="70%" height="50%" alt="" />
+              <div className="caption">
+                <h4>{this.props.judul}</h4>
+                <p>{this.props.deskripsi}</p>
+                <p>
+                  <a href={this.props.url} className="btn btn-info btn-xs" role="button" target="_blank" >Read More</a>
+                </p>
+                <p>
+                  <span style={{"color":"green", "font-size":"16"}}>{this.props.type}</span>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+});
+
 
 //============ RENDERING COMPONENT TO VIEW
 const App = React.createClass({
@@ -81,7 +174,9 @@ const App = React.createClass({
       <div>
         <Header />
         <Slider/>
-        <HomeComponent />
+        <HomeComponent>
+          <CardComponent/>
+        </HomeComponent>
       </div>
     );
   }
