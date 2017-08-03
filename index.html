@@ -2,20 +2,29 @@
 
 <head>
   <title>It's Time</title>
-  <link rel="shortcut icon" href="clock.png" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="theme-color" content="#1c1c1c">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <link rel="stylesheet" href="time.css">
 
-  <script src="time.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous">
+
+  <!-- REACTJS CDN -->
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  
 </head>
 
-<body onload="start()">
-  <clock>
-    <div id="time"></div>
-  </clock>
+<body>
+  <div id="main"></div>
+
+  <!-- REACTJS -->
+  <script type="text/babel" src="main.js"></script>
 </body>
 
 </html>
