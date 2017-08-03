@@ -36,10 +36,17 @@ const DATA = [
       },
       {
         judul: "Bagaimana Javascript Menghandle Proses Asynchronous - Callback, Promise, Coroutine, dan Async/Await",
-        deskripsi: "Javascript adalah bahasa pemrograman yang synchronous by default. Walaupun begitu, pada Javascript Server Side (NodeJS) terdapat beberapa operasi yang asynchronous. Berikut pembahasan tentang bagaimana cara Javascript menghandle ke-asynchronous-annya tersebut...",
+        deskripsi: "Javascript adalah bahasa pemrograman yang synchronous by default. Walaupun begitu, pada Javascript Server Side (NodeJS) terdapat beberapa operasi yang asynchronous...",
         image: "https://cdn-images-1.medium.com/max/2000/1*IjI_Z1-Xa2ydx5cgBtTjaw.jpeg",
         url: "https://medium.com/koding-kala-weekend/bagaimana-javascript-menghandle-proses-asynchronous-callback-promise-coroutine-dan-async-await-928326575289",
         type: "Artikel"
+      },
+      {
+        judul: "New Laravel & NodeJS Project: Shopping Cart - Academind",
+        deskripsi: "A little announcement, I'll soon start a new project, where I will build a shopping cart (dummy online shop + user management + shopping cart + checkout) with two different languages/ frameworks: Laravel and NodeJS/ ExpressJS....",
+        image: "https://i.ytimg.com/vi/BTkvRL80t6Y/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=56TizEw2LgI&list=PL55RiY5tL51qUXDyBqx0mKVOhLNFwwxvH",
+        type: "Video"
       },
     ];
 
@@ -47,6 +54,9 @@ const Styles = {
   nav: {
     "margin-top": "10px",
     "background-color": "#E2E2E2"
+  },
+  thumbnail: {
+    "align-image": "center"
   }
 };
 
@@ -170,7 +180,7 @@ const CardList = React.createClass({
       <div>
         <div className="col-xs-18 col-sm-6 col-md-4">
           <div className="thumbnail">
-            <img src={this.props.image} width="70%" height="50%" alt="" />
+            <img src={this.props.image} width="80%" height="50%" style={Styles.thumbnail} />
               <div className="caption">
                 <h4>{this.props.judul}</h4>
                 <p>{this.props.deskripsi}</p>
