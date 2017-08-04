@@ -48,6 +48,13 @@ const DATA = [
         url: "https://www.youtube.com/watch?v=56TizEw2LgI&list=PL55RiY5tL51qUXDyBqx0mKVOhLNFwwxvH",
         type: "Video"
       },
+      {
+        judul: "React CRUD Tutorial – JavaScript Programming – Step By Step Guide!",
+        deskripsi: "Previously, we learned our jQuery AJAX CRUD tutorial. Today we will learn how to create or insert, read, update, and delete database records with React.....",
+        image: "https://i1.wp.com/www.codeofaninja.com/wp-content/uploads/2016/07/react-crud-tutorial-step-by-step-guide.jpg?w=780&ssl=1",
+        url: "https://www.codeofaninja.com/2016/07/react-crud-tutorial.html",
+        type: "Artikel"
+      },
     ];
 
 const Styles = {
@@ -62,8 +69,21 @@ const Styles = {
 
 //============= HEADER COMPONENT
 const Header = React.createClass({
+  getInitialState: function(){
+    return{
+      today: new Date()
+    }
+  },
+
+  componentDidMount: function() {
+    setInterval(this.updateTime, 500);
+  },
+
+  updateTime: function() {
+    this.setState({ today: new Date() });
+  },
+
   render: function() {
-    let date = new Date();
     return (
       <div>
         <nav
@@ -90,7 +110,7 @@ const Header = React.createClass({
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a>Time</a>
+                <a>{this.state.today.toDateString()} {this.state.today.toLocaleTimeString()} </a>
               </li>
             </ul>
           </div>
@@ -112,6 +132,21 @@ const Slider = React.createClass({
             urlOn: 0
         }
     },
+    
+    componentDidMount: function(){
+      setInterval(this.updateUrl, 10 * 1000);
+    },
+
+    updateUrl: function() {
+      let n = this.state.urlOn;
+        if( n == 0 || n == 1){
+            n += 1;
+            this.setState({ urlOn: n  });    
+        } else {
+            this.setState({ urlOn: 0 });   
+        }
+    },
+
     render: function() {
         let on = this.state.urlOn;
         let img = this.state.url[on];
@@ -198,6 +233,20 @@ const CardList = React.createClass({
   }
 });
 
+//================FOOTER
+const Footer = React.createClass({
+  render: function() {
+    return (
+    <div>
+        <footer className="navbar-default navbar-fixed-bottom">
+          <div className="container-fluid">
+            <center><span>&copy;2017</span></center>
+          </div>
+        </footer>
+    </div>
+    );
+  }
+});
 
 //============ RENDERING COMPONENT TO VIEW
 const App = React.createClass({
@@ -205,10 +254,11 @@ const App = React.createClass({
     return (
       <div>
         <Header />
-        <Slider/>
+        <Slider />
         <HomeComponent>
-          <CardComponent/>
+          <CardComponent />
         </HomeComponent>
+        <Footer />
       </div>
     );
   }
