@@ -1,3 +1,4 @@
+//=========================== DEPENDENCIES
 const DATA = [
       {
         judul: "React Tutorial - The Net Ninja",
@@ -55,9 +56,16 @@ const DATA = [
         url: "https://www.codeofaninja.com/2016/07/react-crud-tutorial.html",
         type: "Artikel"
       },
+      {
+        judul: "Creating a Single-Page App in React using React Router",
+        deskripsi: "Now that you've familiarized yourself with the basics of how to work with React, let's kick things up a few notches. What we are going to do is use React to build a simple single-page app (also referred to as SPA by the cool kids...",
+        image: "https://www.kirupa.com/react/images/single_page_model_144.png",
+        url: "https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm",
+        type: "Artikel"
+      },
     ];
 
-const Styles = {
+const STYLES = {
   nav: {
     "margin-top": "10px",
     "background-color": "#E2E2E2"
@@ -66,6 +74,14 @@ const Styles = {
     "align-image": "center"
   }
 };
+
+const Router = ReactRouter.Router,
+  Route = ReactRouter.Route,
+  Link = ReactRouter.Link,
+  IndexRoute = ReactRouter.IndexRoute,
+  hashHistory = ReactRouter.hashHistory;
+
+//====================================================================================================
 
 //============= HEADER COMPONENT
 const Header = React.createClass({
@@ -88,13 +104,13 @@ const Header = React.createClass({
       <div>
         <nav
           className="navbar navbar-light"
-          style={Styles.nav}
+          style={STYLES.nav}
         >
           <div className="container-fluid">
             <div className="navbar-header">
               <a className="navbar-brand" href="#">
                 <img 
-                    src={"https://www.gitbook.com/cover/book/mongkuen/react.jpg?build=1470682429235"}
+                    src={"http://maxehnert.com/app/images/react.svg"}
                     alt="ReactJs"
                     width={"22"} height={"25"}
                 />
@@ -102,15 +118,17 @@ const Header = React.createClass({
             </div>
             <ul className="nav navbar-nav">
               <li className="active">
-                <a href="#">Home</a>
+                 {/* <a href="#">Home</a> */}
+                  <Link to='/' activeClassName="active"> Home </Link>
               </li>
               <li>
-                <a href="#">About</a>
+                 {/* <a href="#">About</a>  */}
+                 <Link to='/about' activeClassName="active"> About </Link>
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a>{this.state.today.toDateString()} {this.state.today.toLocaleTimeString()} </a>
+                <a>{this.state.today.toDateString()} | {this.state.today.toLocaleTimeString()} </a>
               </li>
             </ul>
           </div>
@@ -215,7 +233,7 @@ const CardList = React.createClass({
       <div>
         <div className="col-xs-18 col-sm-6 col-md-4">
           <div className="thumbnail">
-            <img src={this.props.image} width="80%" height="50%" style={Styles.thumbnail} />
+            <img src={this.props.image} width="80%" height="50%" style={STYLES.thumbnail} />
               <div className="caption">
                 <h4>{this.props.judul}</h4>
                 <p>{this.props.deskripsi}</p>
@@ -248,12 +266,12 @@ const Footer = React.createClass({
   }
 });
 
-//============ RENDERING COMPONENT TO VIEW
-const App = React.createClass({
+//============ CONTENT COMPONENT
+const Home = React.createClass({
   render: function() {
     return (
       <div>
-        <Header />
+        <Header /> 
         <Slider />
         <HomeComponent>
           <CardComponent />
@@ -264,4 +282,26 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById("main"));
+const About = React.createClass({
+  render: function() {
+    return(
+      <div>
+        <Header/>
+        <h1>About</h1>
+        <p>Hanya untuk belejar menggunakan ReactJS dengan CDN.</p>
+        <Footer />
+      </div>
+    );
+  }
+})
+
+//=============== ROUTE COMPONENT
+const Routes = () =>
+  <Router history={hashHistory}>
+    <Route path="/" component={Home} />
+      <Route path="/about" component={About} />
+  </Router>;
+
+ReactDOM.render(
+  <Routes/>
+  , document.getElementById("main"));
