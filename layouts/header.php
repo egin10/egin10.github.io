@@ -9,6 +9,7 @@
     <meta name="author" content="">
 
     <title>DevCat - Home Page</title>
+    <link rel="shortcut icon" href="../img/icon.png">
 
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

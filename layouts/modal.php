@@ -1,5 +1,5 @@
 <!-- Portfolio Modals -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="portfolio-modal modal fade" id="voti" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -11,25 +11,26 @@
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                  <h2>Project Title</h2>
+                  <h2>Voting TI (VOTI) Polnes</h2>
                   <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="img/portfolio/cabin.png" alt="">
-                  <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-                    <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                  <img class="img-fluid img-centered" src="img/portfolio/voti.png" alt="">
+                  <p>Voting TI (VOTI) Polnes adalah aplikasi voting yang digunakan untuk acara Yudisium Jurusan Teknologi Informasi Politeknik Negeri Samarinda.
+                    Aplikasi berbasis web ini digunakan sebagai media untuk melakukan voting kepada nominasi-nominasi mahasiswa dan dosen berdasarkan kategori
+                    yang telah ditentukan.</p>
                   <ul class="list-inline item-details">
                     <li>Client:
                       <strong>
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
+                        EO Yudisium TI POLNES
                       </strong>
                     </li>
                     <li>Date:
                       <strong>
-                        <a href="http://startbootstrap.com">April 2014</a>
+                        Agustus 2017
                       </strong>
                     </li>
                     <li>Service:
                       <strong>
-                        <a href="http://startbootstrap.com">Web Development</a>
+                        Web Development
                       </strong>
                     </li>
                   </ul>
@@ -43,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="i-pray" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -55,25 +56,21 @@
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                  <h2>Project Title</h2>
+                  <h2>I-Pray</h2>
                   <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="img/portfolio/cake.png" alt="">
-                  <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-                    <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                  <img class="img-fluid img-centered" src="img/portfolio/i-pray.png" alt="">
+                  <p>I-Pray merupakan aplikasi berbasis web untuk menampilkan data mushola di kecamatan Samarinda Seberang berdasarkan
+                    radius lokasi yang diinginkan dan dapat nemampilkan posisi pengguna saat ini. Aplikasi berbasis web ini menggunakan geolocation
+                    yang disediakan oleh Google Maps API. Aplikasi ini merupakan hasil Tugas Akhir Kuliah.</p>
                   <ul class="list-inline item-details">
-                    <li>Client:
-                      <strong>
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
-                      </strong>
-                    </li>
                     <li>Date:
                       <strong>
-                        <a href="http://startbootstrap.com">April 2014</a>
+                        Febuari 2017
                       </strong>
                     </li>
                     <li>Service:
                       <strong>
-                        <a href="http://startbootstrap.com">Web Development</a>
+                        Web Development
                       </strong>
                     </li>
                   </ul>
